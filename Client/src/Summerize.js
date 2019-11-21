@@ -81,16 +81,16 @@ let rows = [];
 
 export default function Summerize(props) {
   const classes = useStyles();
-  const details = props.data;
+  const details = props.data || [];
 
   let index = 0
   rows = [];
 
-  props.data.forEach(record => {
+  details.forEach(record => {
       let message;
       let color;
 
-      switch (record.value) {
+      switch (record.Value) {
           case 1:
             message = "Low Risk";
             color = "grey";
@@ -111,7 +111,7 @@ export default function Summerize(props) {
 
     rows.push({
         id: index,
-        field: record.field,
+        field: record.Field,
         message: message,
         color: color
     });

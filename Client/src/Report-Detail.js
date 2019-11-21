@@ -30,10 +30,10 @@ let rows = [];
 
 export default function ReportDetails(props) {
   const classes = useStyles();
-
+  let detail = props.data || [];
   rows = [];
 
-  props.data.forEach(record => {
+  detail.forEach(record => {
     rows.push(record);
   });
 
@@ -43,21 +43,17 @@ export default function ReportDetails(props) {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>category</TableCell>
+            <TableCell>type</TableCell>
             <TableCell>keyword</TableCell>
             <TableCell>description</TableCell>
-            <TableCell>severity</TableCell>
-            <TableCell align="right">detail</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => (
             <TableRow key={row.id}>
-              <TableCell>{row.category}</TableCell>
+              <TableCell>{row.type}</TableCell>
               <TableCell>{row.keyword}</TableCell>
               <TableCell>{row.description}</TableCell>
-              <TableCell>{row.severity}</TableCell>
-              <TableCell align="right">{row.detail}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -48,9 +48,9 @@ export default function Report(props) {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const fixedHeightPaperHero = clsx(fixedHeightPaper, classes.mainFeaturedPost);
   const report = props.report;
-  const score = report.score;
-  const summery = report.summery;
-  const detail = report.detail;
+  const score = report.Score;
+  const summery = report.Summary;
+  const detail = report.Detail;
 
   return (
     <div className={classes.root}>

@@ -8,52 +8,52 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import request from 'superagent'
 
-// const apiBaseUrl = "http://10.172.113.98:8090/";
-const apiBaseUrl = "http://localhost:8090/";
+const apiBaseUrl = "http://10.172.113.98:8090/";
+// const apiBaseUrl = "http://localhost:8090/";
 
 
 // =============================================================================================================
 // =============================================================================================================
 // =============================================================================================================
 // Generate Fake Data
-function createData(id, category, keyword, description, severity, detail) {
-    return {id, category, keyword, description, severity, detail };
+function createData(id, type, keyword, description) {
+    return {id, type, keyword, description};
 }
 
 const detail = [
-createData(0, "category 1", "issue 1", "this is a attacking signal", 0, "check more details on website"),
-createData(1, "category 2", "issue 2", "this is a attacking signal", 1, "check more details on website"),
-createData(2, "category 3", "issue 3", "this is a attacking signal", 2, "check more details on website"),
-createData(3, "category 4", "issue 4", "this is a attacking signal", 3, "check more details on website"),
-createData(4, "category 5", "issue 5", "this is a attacking signal", 4, "check more details on website"),
-createData(5, "category 6", "issue 6", "this is a attacking signal", 5, "check more details on website"),
+createData(0, "type 1", "issue 1", "this is a attacking signal"),
+createData(1, "type 2", "issue 2", "this is a attacking signal"),
+createData(2, "type 3", "issue 3", "this is a attacking signal"),
+createData(3, "type 4", "issue 4", "this is a attacking signal"),
+createData(4, "type 5", "issue 5", "this is a attacking signal"),
+createData(5, "type 6", "issue 6", "this is a attacking signal"),
 ];
 
 const fakeReport = {
-    summery: [{
-        field: "Type 1",
-        value: 0
+    Summary: [{
+        Field: "Type 1",
+        Value: 0
     }, {
-        field: "Type 2",
-        value: 3
+        Field: "Type 2",
+        Value: 3
     }, {
-        field: "Type 3",
-        value: 2
+        Field: "Type 3",
+        Value: 2
     }, {
-        field: "Type 4",
-        value: 1
+        Field: "Type 4",
+        Value: 1
     }, {
-        field: "Type 5",
-        value: 3
+        Field: "Type 5",
+        Value: 3
     }, {
-        field: "Type 6",
-        value: 2
+        Field: "Type 6",
+        Value: 2
     }, {
-        field: "Type 17",
-        value: 2
+        Field: "Type 17",
+        Value: 2
     }],
-    score: 100,
-    detail: detail,
+    Score: 100,
+    Detail: detail,
 }
 // =============================================================================================================
 // =============================================================================================================
@@ -115,7 +115,9 @@ class FileUploader extends Component {
                 self.hideProgressBar();
 
                 // TODO: TODO: TODO:
-                self.notifyAnalyzeCompleted(err, fakeReport);
+                // console.log(res.body);
+                let result = res ? res.body : fakeReport;
+                self.notifyAnalyzeCompleted(err, result);
             });
                 
             self.handleDialogClose();
