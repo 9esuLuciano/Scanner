@@ -134,7 +134,7 @@ class FileUploader extends Component {
             <div>
                 {!inUploading? (
                     <div>
-                        <Button onClick={this.handleDialogOpen.bind(this)}>
+                        <Button variant="contained" color="primary" onClick={this.handleDialogOpen.bind(this)}>
                         Add A File To Scan
                         </Button>
                         <DropzoneDialog
