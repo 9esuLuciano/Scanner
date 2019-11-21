@@ -30,22 +30,22 @@ const useStyles = makeStyles(theme => ({
   },
   papergrey: {
     height: 75,
-    width: 170,
+    width: 250,
     backgroundColor: '#b0bec5'
   },
   paperyellow: {
     height: 75,
-    width: 170,
+    width: 250,
     backgroundColor: '#fff9c4'
   },
   paperred: {
     height: 75,
-    width: 170,
+    width: 250,
     backgroundColor: '#ef9a9a'
   },
   papergreen: {
     height: 75,
-    width: 170,
+    width: 250,
     backgroundColor: '#c8e6c9'
   },
   summarycontent: {
@@ -105,11 +105,11 @@ export default function Summerize(props) {
             <Typography component="h2" variant="h3" color="inherit" gutterBottom>
                 Summary
             </Typography>
-            <GridList cellHeight={75} className={classes.gridList} cols={4}>
+            <GridList cellHeight={75} className={classes.gridList} cols={3}>
                 {rows.map(tile => (
                 <GridListTile key={tile.id}>
                     <Paper className={classes["paper" + tile.color]}>
-                        <Typography className={classes.summarycontent} component="h2" variant="h5" color="primary" gutterBottom>
+                        <Typography className={classes.summarycontent} component="h2" variant="h6" color="primary" gutterBottom>
                             {tile.field}
                         </Typography>
                         <p className={classes.summarycontent}>{tile.message}</p>

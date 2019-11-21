@@ -58,22 +58,6 @@ export default function ReportDetails(props) {
           ))}
         </TableBody>
       </Table>
-      <div className={classes.seeFullLog}>
-        <ExpansionPanel>
-          <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>See Full Log</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              {props.detail}
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-      </div>
     </React.Fragment>
   );
 }

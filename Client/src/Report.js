@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Summerize from './Summerize'
 import Score from './Score'
 import Detail from './Report-Detail'
+import FullLog from './FullLog'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 260,
+    height: 350,
   },
   mainFeaturedPost: {
     position: 'relative',
@@ -51,6 +52,7 @@ export default function Report(props) {
   const score = report.Score;
   const summery = report.Summary;
   const detail = report.Detail;
+  const fulllog = report.FullLog;
 
   return (
     <div className={classes.root}>
@@ -76,7 +78,14 @@ export default function Report(props) {
                 <Detail data={detail}/>
               </Paper>
             </Grid>
+            {/* Full log */}
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <FullLog data={fulllog}/>
+              </Paper>
+            </Grid>
           </Grid>
+          
         </Container>
       </main>
     </div>

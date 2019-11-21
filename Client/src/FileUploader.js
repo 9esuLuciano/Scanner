@@ -102,7 +102,7 @@ class FileUploader extends Component {
     handleSave(files) {
         var self = this;
         if (files.length > 0) {
-            var req = request.post(apiBaseUrl + 'writeFile');
+            var req = request.post(apiBaseUrl + 'checking');
             for (var i in files) {
                 req.attach('fileToCheck', files[i], files[i].name)
             }
